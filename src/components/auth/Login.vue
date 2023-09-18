@@ -7,7 +7,6 @@ const { layoutConfig } = useLayout();
 const email = ref('');
 const password = ref('');
 const checked = ref(false);
-
 </script>
 
 <template>
