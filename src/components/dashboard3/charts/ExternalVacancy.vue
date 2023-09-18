@@ -1,12 +1,5 @@
-<template>
-    <div class="card">
-        <Chart type="bar" :data="chartData" :options="chartOptions" style="height: 250px;"  />
-    </div>
-</template>
-
 <script setup>
-import { ref, onMounted } from "vue";
-
+import { ref, onMounted } from 'vue';
 onMounted(() => {
     chartData.value = setChartData();
     chartOptions.value = setChartOptions();
@@ -17,25 +10,18 @@ const chartOptions = ref();
 
 const setChartData = () => {
     const documentStyle = getComputedStyle(document.documentElement);
-
     return {
-        labels: ['1-2', '', '2-4', '', '4-6', '', '6-8'],
+        labels: ['Regular', 'Program', 'Daily', 'Part-time', 'Foregin'],
         datasets: [
             {
-                label: 'My First dataset',
-                backgroundColor: documentStyle.getPropertyValue('--blue-500'),
-                borderColor: documentStyle.getPropertyValue('--blue-500'),
-                data: [88, 0, 70, 0, 56, 0, 40],
-            },
-            // {
-            //     label: 'My Second dataset',
-            //     backgroundColor: documentStyle.getPropertyValue('--pink-500'),
-            //     borderColor: documentStyle.getPropertyValue('--pink-500'),
-            //     data: [28, 48, 40, 19, 86, 27, 90]
-            // }
+                data: [11, 16, 7, 3, 14],
+                backgroundColor: [documentStyle.getPropertyValue('--red-500')],
+                label: 'My dataset'
+            }
         ]
     };
 };
+
 const setChartOptions = () => {
     const documentStyle = getComputedStyle(document.documentElement);
     const textColor = documentStyle.getPropertyValue('--text-color');
@@ -43,7 +29,6 @@ const setChartOptions = () => {
     const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
 
     return {
-        indexAxis: 'y',
         maintainAspectRatio: false,
         aspectRatio: 0.8,
         plugins: {
@@ -77,5 +62,9 @@ const setChartOptions = () => {
             }
         }
     };
-}
+};
 </script>
+
+<template>
+    <Chart type="bar" :data="chartData" :options="chartOptions" style="height: 250px" />
+</template>

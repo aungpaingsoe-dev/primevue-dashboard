@@ -1,6 +1,6 @@
 <template>
     <div class="card">
-        <Chart type="bar" :data="chartData" :options="chartOptions" style="height: 250px;"  />
+        <Chart type="line" :data="chartData" :options="chartOptions" style="height: 250px;"/>
     </div>
 </template>
 
@@ -14,25 +14,20 @@ onMounted(() => {
 
 const chartData = ref();
 const chartOptions = ref();
-
+        
 const setChartData = () => {
     const documentStyle = getComputedStyle(document.documentElement);
 
     return {
-        labels: ['1-2', '', '2-4', '', '4-6', '', '6-8'],
+        labels: ['January', 'July'],
         datasets: [
             {
-                label: 'My First dataset',
-                backgroundColor: documentStyle.getPropertyValue('--blue-500'),
+                label: 'First Dataset',
+                data: [65, 40],
+                fill: false,
                 borderColor: documentStyle.getPropertyValue('--blue-500'),
-                data: [88, 0, 70, 0, 56, 0, 40],
+                tension: 0.4
             },
-            // {
-            //     label: 'My Second dataset',
-            //     backgroundColor: documentStyle.getPropertyValue('--pink-500'),
-            //     borderColor: documentStyle.getPropertyValue('--pink-500'),
-            //     data: [28, 48, 40, 19, 86, 27, 90]
-            // }
         ]
     };
 };
@@ -43,27 +38,22 @@ const setChartOptions = () => {
     const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
 
     return {
-        indexAxis: 'y',
         maintainAspectRatio: false,
-        aspectRatio: 0.8,
+        aspectRatio: 0.6,
         plugins: {
             legend: {
                 labels: {
-                    fontColor: textColor
+                    color: textColor
                 }
             }
         },
         scales: {
             x: {
                 ticks: {
-                    color: textColorSecondary,
-                    font: {
-                        weight: 500
-                    }
+                    color: textColorSecondary
                 },
                 grid: {
-                    display: false,
-                    drawBorder: false
+                    color: surfaceBorder
                 }
             },
             y: {
@@ -71,8 +61,7 @@ const setChartOptions = () => {
                     color: textColorSecondary
                 },
                 grid: {
-                    color: surfaceBorder,
-                    drawBorder: false
+                    color: surfaceBorder
                 }
             }
         }

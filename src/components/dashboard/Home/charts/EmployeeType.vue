@@ -72,5 +72,5 @@ const setChartOptions = () => {
 </script>
 
 <template>
-    <Chart type="bar" :data="chartData" :options="chartOptions" style="height: 250px" />
+    <Chart type="bar" :data="chartData" :options="chartOptions" style="height: 230px" />
 </template>
