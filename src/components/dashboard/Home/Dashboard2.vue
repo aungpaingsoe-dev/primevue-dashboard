@@ -1,105 +1,91 @@
 <script setup>
-import EmployeeType from './charts/EmployeeType.vue';
-import EmployeeStatus from './charts/EmployeeStatus.vue';
-import FemaleMale from './charts/FemaleMale.vue';
+import Hi5UsedRange from './charts/Hi5UsedRange.vue';
+import Promotion from './charts/Promotion.vue';
+import Demotion from './charts/Demotion.vue';
+import ResignTermination from './charts/ResignTermination.vue';
 </script>
 
 <template>
     <div class="container-fluid card p-3">
-        <div class="d-flex gap-1">
-            <div class="w-full">
-                <div class="border mx-1 border-dark rounded-4 p-4 d-flex align-items-center gap-4">
-                    <div>
-                        <i class="pi pi-user" style="font-size: 2.5rem"></i>
-                    </div>
-                    <div>
-                        <div class="h5">Total</div>
-                        <div class="h3">2789</div>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full">
-                <div class="border mx-1 border-dark rounded-4 p-4 d-flex align-items-center gap-4">
-                    <div>
-                        <i class="pi pi-user" style="font-size: 2.5rem"></i>
-                    </div>
-                    <div>
-                        <div class="h5">Total</div>
-                        <div class="h3">2789</div>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full">
-                <div class="border mx-1 border-dark rounded-4 p-4 d-flex align-items-center gap-4">
-                    <div>
-                        <i class="pi pi-user" style="font-size: 2.5rem"></i>
-                    </div>
-                    <div>
-                        <div class="h5">Total</div>
-                        <div class="h3">2789</div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="border rounded-5 border-dark p-5" style="height: 200px">
+                    <div class="d-flex flex-column gap-5 h-100 justify-content-center">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="text-xl">25 Jan 2022</div>
+                            <div>
+                                <i class="pi pi-cloud" style="font-size: 40px"></i>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex flex-column align-items-center gap-3">
+                                <span class="text-success text-2xl"> 90% </span>
+                                <span> Present </span>
+                            </div>
+                            <div class="d-flex flex-column align-items-center gap-3">
+                                <span class="text-danger text-2xl"> 10% </span>
+                                <span> Absent </span>
+                            </div>
+                            <div class="d-flex flex-column align-items-center gap-3">
+                                <span class="text-primary-400 text-2xl"> 10% </span>
+                                <span> Leave </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="w-full">
-                <div class="border mx-1 border-dark rounded-4 p-4 d-flex align-items-center gap-4">
-                    <div>
-                        <i class="pi pi-user" style="font-size: 2.5rem"></i>
-                    </div>
-                    <div>
-                        <div class="h5">Total</div>
-                        <div class="h3">2789</div>
+            <div class="col-md-4">
+                <div class="border rounded-5 border-dark p-5" style="height: 200px">
+                    <div class="d-flex flex-column gap-5 h-100 justify-content-center">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <div class="text-xl">25 Jan 2022</div>
+                            <div>
+                                <i class="pi pi-sun" style="font-size: 40px"></i>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex flex-column align-items-center gap-3">
+                                <span class="text-success text-2xl"> 90% </span>
+                                <span> Present </span>
+                            </div>
+                            <div class="d-flex flex-column align-items-center gap-3">
+                                <span class="text-danger text-2xl"> 10% </span>
+                                <span> Absent </span>
+                            </div>
+                            <div class="d-flex flex-column align-items-center gap-3">
+                                <span class="text-primary-400 text-2xl"> 10% </span>
+                                <span> Leave </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="w-full">
-                <div class="border mx-1 border-dark rounded-4 p-4 d-flex align-items-center gap-4">
-                    <div>
-                        <i class="pi pi-user" style="font-size: 2.5rem"></i>
+            <div class="col-md-4">
+                <div class="border rounded-5 border-dark p-5" style="height: 200px">
+                    <div class="d-flex flex-column gap-5 h-100 justify-content-center">
+                        <Hi5UsedRange />
                     </div>
-                    <div>
-                        <div class="h5">Total</div>
-                        <div class="h3">2789</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="d-flex my-3 row">
-            <div class="employeeType">
-                <div class="border border-dark rounded-4 p-4">
-                    <EmployeeType/>
-                </div>
-            </div>
-            <div class="employeeStatus">
-                <div class="border border-dark rounded-4 p-4">
-                    <EmployeeStatus/>
-                </div>
-            </div>
-            <div class="femaleMale">
-                <div class="border border-dark rounded-4 p-4">
-                    <FemaleMale />
                 </div>
             </div>
         </div>
-
-        <div class="d-flex">
-            <div class="">
-
+        <div class="row my-4">
+            <div class="col-md-4">
+                <div class="border rounded-5 border-dark p-5" style="height: 200px">
+                    <Promotion />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="border rounded-5 border-dark p-5" style="height: 200px">
+                    <Demotion />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="border rounded-5 border-dark p-5" style="height: 200px">
+                    <ResignTermination/>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
-<style scoped>
-.employeeType {
-    width: 40%;
-}
-.employeeStatus {
-    width: 30%;
-}
-.femaleMale {
-    width: 30%;
-}
-.employeeStatus .card, .femaleMale .card {
-    padding: unset !important;
-}
-</style>
+<style scoped></style>
