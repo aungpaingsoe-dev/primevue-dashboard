@@ -2,6 +2,8 @@
 import EmployeeType from './charts/EmployeeType.vue';
 import EmployeeStatus from './charts/EmployeeStatus.vue';
 import FemaleMale from './charts/FemaleMale.vue';
+import ServiceYear from './charts/ServiceYear.vue';
+import YearManPower from './charts/YearManPower.vue';
 </script>
 
 <template>
@@ -80,20 +82,38 @@ import FemaleMale from './charts/FemaleMale.vue';
                 </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="positionLevel">
+                <div class="border border-dark rounded-4 p-4">
+                    
+                </div>
+            </div>
+            <div class="serviceYear">
+                <div class="border border-dark rounded-4 p-4">
+                    <ServiceYear/>
+                </div>
+            </div>
+            <div class="yearlyManPower">
+                <div class="border border-dark rounded-4 p-4">
+                    <YearManPower/>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
 <style scoped>
-.employeeType {
+.employeeType, .positionLevel {
     width: 40%;
 }
-.employeeStatus {
+.employeeStatus, .serviceYear {
     width: 30%;
 }
-.femaleMale {
+.femaleMale , .yearlyManPower {
     width: 30%;
 }
-.employeeStatus .card, .femaleMale .card {
+.employeeStatus .card, .femaleMale .card, .serviceYear .card, .yearlyManPower .card {
     padding: unset !important;
 }
 </style>
