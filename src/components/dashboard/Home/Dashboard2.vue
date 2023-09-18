@@ -80,6 +80,12 @@ import FemaleMale from './charts/FemaleMale.vue';
                 </div>
             </div>
         </div>
+
+        <div class="d-flex">
+            <div class="">
+
+            </div>
+        </div>
     </div>
 </template>
 
