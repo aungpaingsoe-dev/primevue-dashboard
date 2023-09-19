@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 import '../src/assets/dashboard/styles.scss'
-
+import { HTTP } from './services/http';
 import PrimeVue from 'primevue/config';
 import AutoComplete from 'primevue/autocomplete';
 import Accordion from 'primevue/accordion';
@@ -102,8 +102,9 @@ import TriStateCheckbox from 'primevue/tristatecheckbox';
 import VirtualScroller from 'primevue/virtualscroller';
 import '@/assets/styles.scss';
 
-const app = createApp(App);
+window.Http = HTTP;
 
+const app = createApp(App);
 app.use(router);
 app.use(PrimeVue, { ripple: true });
 app.use(ToastService);
