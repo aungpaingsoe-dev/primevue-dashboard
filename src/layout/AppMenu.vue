@@ -4,68 +4,100 @@ import { ref } from 'vue';
 import AppMenuItem from './AppMenuItem.vue';
 
 const model = ref([
+    /**
+     * Home
+     */
     {
         label: 'Home',
-        items: [
-            { label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/' },
-            { label: 'Dashboard2', icon: 'pi pi-fw pi-home', to: '/dashboard2' },
-            { label: 'Dashboard3', icon: 'pi pi-fw pi-home', to: '/dashboard3' },
-               ]
+        items: [{ label: 'Dashboard', icon: 'pi pi-fw pi-home', to: '/dashboard/home' }]
     },
+    /**
+     * As Cores Hris
+     */
     {
-        label: 'Chart',
         items: [
             {
-                label: 'Charts',
+                label: 'As Core Hris',
                 icon: 'pi pi-fw pi-chart-pie',
-                to : '/chart/charts'
-            },
-        ]
-    },
-    {
-        label: 'Hierarchy',
-        items: [
-            {
-                label: 'Submenu 1',
-                icon: 'pi pi-fw pi-bookmark',
                 items: [
                     {
-                        label: 'Submenu 1.1',
+                        label: 'Attended',
                         icon: 'pi pi-fw pi-bookmark',
-                        items: [
-                            { label: 'Submenu 1.1.1', icon: 'pi pi-fw pi-bookmark' },
-                            { label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-bookmark' },
-                            { label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-bookmark' }
-                        ]
+                        to: '/dashboard/sa-core-hris/attended'
                     },
                     {
-                        label: 'Submenu 1.2',
+                        label: 'Vecancy',
                         icon: 'pi pi-fw pi-bookmark',
-                        items: [{ label: 'Submenu 1.2.1', icon: 'pi pi-fw pi-bookmark' }]
-                    }
-                ]
-            },
-            {
-                label: 'Submenu 2',
-                icon: 'pi pi-fw pi-bookmark',
-                items: [
-                    {
-                        label: 'Submenu 2.1',
-                        icon: 'pi pi-fw pi-bookmark',
-                        items: [
-                            { label: 'Submenu 2.1.1', icon: 'pi pi-fw pi-bookmark' },
-                            { label: 'Submenu 2.1.2', icon: 'pi pi-fw pi-bookmark' }
-                        ]
-                    },
-                    {
-                        label: 'Submenu 2.2',
-                        icon: 'pi pi-fw pi-bookmark',
-                        items: [{ label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-bookmark' }]
+                        to: '/dashboard/sa-core-hris/vecancy'
                     }
                 ]
             }
         ]
     },
+    /**
+     * User Management
+     */
+    {
+        label: 'User Mangement',
+        items: [
+            {
+                label: 'Users',
+                icon: 'pi pi-fw pi-bookmark',
+                items: [
+                    {
+                        label: 'List',
+                        icon: 'pi pi-fw pi-bookmark',
+                        to: '/dashboard/user-management/users'
+                    },
+                    {
+                        label: 'New',
+                        icon: 'pi pi-fw pi-bookmark',
+                        to: '/dashboard/user-management/create'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        items: [
+            {
+                label: 'Roles',
+                icon: 'pi pi-fw pi-bookmark',
+                items: [
+                    {
+                        label: 'List',
+                        icon: 'pi pi-fw pi-bookmark',
+                        to: '/dashboard/user-management/roles'
+                    },
+                    {
+                        label: 'New',
+                        icon: 'pi pi-fw pi-bookmark',
+                        to: '/dashboard/user-management/roles/create'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        items: [
+            {
+                label: 'Permissions',
+                icon: 'pi pi-fw pi-bookmark',
+                items: [
+                    {
+                        label: 'List',
+                        icon: 'pi pi-fw pi-bookmark',
+                        to: '/dashboard/user-management/permissions'
+                    },
+                    {
+                        label: 'New',
+                        icon: 'pi pi-fw pi-bookmark',
+                        to: '/dashboard/user-management/permissions/create'
+                    }
+                ]
+            }
+        ]
+    }
 ]);
 </script>
 
