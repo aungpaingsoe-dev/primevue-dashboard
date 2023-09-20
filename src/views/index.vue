@@ -1,19 +1,11 @@
 <script setup>
 import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
-// import { useRouter } from 'vue-router';
-// const router = useRouter();
-// onMounted(() => {
-//     router.push('/dashboard/home');
-// });
-
-onMounted(async () => {
-    await Http.get('/products').then((res) => {
-        console.log(res);
-    });
+const router = useRouter();
+onMounted(() => {
+    router.push('/dashboard/home');
 });
+
 </script>
 
-<template>
-    <div></div>
-</template>

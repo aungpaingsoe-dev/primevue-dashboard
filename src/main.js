@@ -3,6 +3,8 @@ import App from './App.vue';
 import router from './router';
 import '../src/assets/dashboard/styles.scss'
 import { HTTP } from './services/http';
+import { createPinia } from "pinia";
+
 import PrimeVue from 'primevue/config';
 import AutoComplete from 'primevue/autocomplete';
 import Accordion from 'primevue/accordion';
@@ -106,6 +108,7 @@ window.Http = HTTP;
 
 const app = createApp(App);
 app.use(router);
+app.use(createPinia())
 app.use(PrimeVue, { ripple: true });
 app.use(ToastService);
 app.use(DialogService);
@@ -206,3 +209,5 @@ app.component('TriStateCheckbox', TriStateCheckbox);
 app.component('VirtualScroller', VirtualScroller);
 
 app.mount('#app');
+
+

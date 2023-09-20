@@ -4,6 +4,7 @@ import AppLayout from '@/layout/AppLayout.vue';
 import Login from '@/views/auth/login.vue';
 // Dashboard Routes
 import Index from '@/views/index.vue';
+import NotFound from '../views/not-found.vue';
 // Home
 import Home from '@/views/dashboard/home/index.vue';
 // Sa Core Management
@@ -32,17 +33,13 @@ const router = createRouter({
                     name: 'index',
                     component: () => Index
                 },
-                /**
-                 * Home
-                 */
+                // Home
                 {
                     path: '/dashboard/home',
                     name: 'dashboard-home',
                     component: () => Home
                 },
-                /**
-                 * Sa Core Hris Management
-                 */
+                // Sa Core Hris Management
                 {
                     path: '/dashboard/sa-core-hris/attended',
                     name: 'dashboard-sa-core-hris-attended',
@@ -53,9 +50,7 @@ const router = createRouter({
                     name: 'dashboard-sa-core-hris-vecancy',
                     component: () => SaCoreHrisVecancy
                 },
-                /**
-                 * User Management
-                 */
+                // User Management
                 {
                     path: '/dashboard/user-management/users',
                     name: 'dashboard-user-management-users',
@@ -107,6 +102,11 @@ const router = createRouter({
             path: '/auth/login',
             name: 'login',
             component: () => Login
+        },
+        {
+            path: '/:notFound',
+            name: 'notFound',
+            component: () => NotFound
         }
     ]
 });

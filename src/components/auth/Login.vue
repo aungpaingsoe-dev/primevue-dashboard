@@ -1,12 +1,16 @@
 <script setup>
-import { useLayout } from '@/layout/composables/layout';
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import AppConfig from '@/layout/AppConfig.vue';
+import { useAuthStore } from '../../stores/auth.js';
 
-const { layoutConfig } = useLayout();
-const email = ref('');
-const password = ref('');
+const authStore = useAuthStore();
+const email = ref(null);
+const password = ref(null);
 const checked = ref(false);
+
+const handleLogin = async () => {
+    await authStore.login(email.value, password.value);
+};
 </script>
 
 <template>
@@ -20,7 +24,7 @@ const checked = ref(false);
                         <span class="text-600 font-medium">Sign in to continue</span>
                     </div>
 
-                    <div>
+                    <form @submit.prevent="handleLogin">
                         <label for="email1" class="block text-900 text-xl font-medium mb-2">Email</label>
                         <InputText id="email1" type="text" placeholder="Email address" class="w-full md:w-30rem mb-5" style="padding: 1rem" v-model="email" />
 
@@ -34,8 +38,8 @@ const checked = ref(false);
                             </div>
                             <a class="font-medium no-underline ml-2 text-right cursor-pointer" style="color: var(--primary-color)">Forgot password?</a>
                         </div>
-                        <Button label="Sign In" class="w-full p-3 text-xl"></Button>
-                    </div>
+                        <Button type="submit" label="Sign In" class="w-full p-3 text-xl"></Button>
+                    </form>
                 </div>
             </div>
         </div>
