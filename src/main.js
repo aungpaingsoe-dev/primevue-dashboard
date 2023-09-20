@@ -1,9 +1,10 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-import '../src/assets/dashboard/styles.scss'
+import '../src/assets/dashboard/styles.scss';
 import { HTTP } from './services/http';
-import { createPinia } from "pinia";
+import { createPinia } from 'pinia';
+import '@/assets/styles.scss';
 
 import PrimeVue from 'primevue/config';
 import AutoComplete from 'primevue/autocomplete';
@@ -102,13 +103,20 @@ import TreeSelect from 'primevue/treeselect';
 import TreeTable from 'primevue/treetable';
 import TriStateCheckbox from 'primevue/tristatecheckbox';
 import VirtualScroller from 'primevue/virtualscroller';
-import '@/assets/styles.scss';
+// Charts List
+import BarChart from './components/Reusables/Charts/BarChart.vue';
+import DoughnuChart from './components/Reusables/Charts/DoughnutChart.vue';
+import HorizontalBarChart from './components/Reusables/Charts/HorizontalBarChart.vue';
+import VerticalBarChart from './components/Reusables/Charts/VerticalBarChart.vue';
+import LineChart from './components/Reusables/Charts/LineChart.vue';
+import PieChart from './components/Reusables/Charts/PieChart.vue';
+import PolorChart from './components/Reusables/Charts/PolarChart.vue';
 
 window.Http = HTTP;
 
 const app = createApp(App);
 app.use(router);
-app.use(createPinia())
+app.use(createPinia());
 app.use(PrimeVue, { ripple: true });
 app.use(ToastService);
 app.use(DialogService);
@@ -207,7 +215,13 @@ app.component('TreeSelect', TreeSelect);
 app.component('TreeTable', TreeTable);
 app.component('TriStateCheckbox', TriStateCheckbox);
 app.component('VirtualScroller', VirtualScroller);
+// Chart Lists
+app.component('DoughnuChart', DoughnuChart);
+app.component('HorizontalBarChart', HorizontalBarChart);
+app.component('VerticalBarChart', VerticalBarChart);
+app.component('LineChart', LineChart);
+app.component('PieChart', PieChart);
+app.component('PolorChart', PolorChart);
+app.component('BarChart', BarChart);
 
 app.mount('#app');
-
-

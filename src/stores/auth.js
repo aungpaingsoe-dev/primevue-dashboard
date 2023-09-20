@@ -1,13 +1,12 @@
 import { defineStore } from 'pinia';
 import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
+import { set } from '../services/cookie';
 
 export const useAuthStore = defineStore('auth', () => {
     const accessToken = ref(null);
     const userInfo = ref(null);
-
-    const setUserInfo = (user) => {
-        userInfo.value = user;
-    };
+    const router = useRouter();
 
     const login = async (email, password) => {
         await Http.post('v1/login', {
@@ -15,9 +14,13 @@ export const useAuthStore = defineStore('auth', () => {
             password: password
         })
             .then((response) => {
-                console.log(response);
                 accessToken.value = response.data.token;
-                userInfo.value    = response.data
+                userInfo.value = response.data;
+                set('access_token', response.data.token);
+                set('user_info', response.data);
+                router.push({
+                    name: 'dashboard-home'
+                });
             })
             .catch((error) => {
                 console.log(error);
@@ -29,7 +32,15 @@ export const useAuthStore = defineStore('auth', () => {
         userInfo.value = null;
     };
 
-    const isAuthenticated = computed(() => !!accessToken.value);
+    const setUserInfo = (user_info) => {
+        userInfo.value = user_info;
+    };
 
-    return { accessToken, userInfo, login, logout, isAuthenticated };
+    const setAccessToken = (access_token) => {
+        accessToken.value = access_token;
+    };
+
+    const isAuthenticated = computed(() => !!accessToken.value && !!userInfo.value);
+
+    return { accessToken, userInfo, setUserInfo, setAccessToken, login, logout, isAuthenticated };
 });

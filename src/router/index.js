@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
+import { get } from '@/services/cookie';
 import AppLayout from '@/layout/AppLayout.vue';
 // Auth Routes
 import Login from '@/views/auth/login.vue';
@@ -23,6 +24,9 @@ import UserManagementPermissionsEdit from '@/views/dashboard/user-management/per
 
 const router = createRouter({
     history: createWebHashHistory(),
+    scrollBehavior: (to, from, savedPosition) => {
+        return { x: 0, y: 0 };
+    },
     routes: [
         {
             path: '/',
@@ -96,7 +100,12 @@ const router = createRouter({
                     name: 'dashboard-user-management-permissions-edit',
                     component: () => UserManagementPermissionsEdit
                 }
-            ]
+            ],
+            beforeEnter: (to, from, next) => {
+                if (get('access_token')) {
+                    next();
+                } else next('/auth/login');
+            }
         },
         {
             path: '/auth/login',
