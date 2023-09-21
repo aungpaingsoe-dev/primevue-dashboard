@@ -1,6 +1,6 @@
 <script setup>
 import axios from 'axios';
-import { get } from '@/services/cookie'
+import { get } from '@/services/cookie';
 import { useToast } from 'primevue/usetoast';
 import { useField, useForm } from 'vee-validate';
 import { ref, onMounted } from 'vue';
@@ -56,7 +56,27 @@ const validateField = (value, fieldName) => {
 };
 
 const onSubmit = handleSubmit(async (values) => {
-    console.log(values);
+    loading.value = true;
+    // Format Selected Roles Array From eg: [{ id : 1, name : 'admin' }] to [1]
+    let assign_roles = [];
+    for (let i = 0; i < values.roles.length; i++) {
+        assign_roles.push(values.roles[i].id);
+    }
+    await Http.put('/v1/users/' + id, {
+        name: values.username,
+        email: values.email,
+        roles: assign_roles
+    })
+    .then((response) => {
+        console.log(response)
+        // toast.add({ severity: 'success', summary: 'Success', detail: `${response.message}`, life: 3000 });
+        // resetForm();
+        // router.push({ name: 'dashboard-user-management-users' });
+    })
+    .finally(() => {
+        loading.value = false;
+    });
+
 });
 </script>
 

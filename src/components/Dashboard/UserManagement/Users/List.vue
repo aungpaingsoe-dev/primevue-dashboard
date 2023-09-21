@@ -29,10 +29,6 @@ const handleEditUser = (user) => {
     });
 };
 
-const handleRejectUser = (user) => {
-    console.log(user);
-};
-
 onMounted(() => {
     getUsers();
 });
@@ -58,7 +54,6 @@ onMounted(() => {
                         <template #body="slotProps">
                             <span class="p-buttonset">
                                 <Button icon="pi pi-pencil" severity="secondary" outlined size="small" @click="handleEditUser(slotProps.data)" />
-                                <Button icon="pi pi-ban" severity="secondary" outlined size="small" @click="handleRejectUser(slotProps.data)" />
                             </span>
                         </template>
                     </Column>
