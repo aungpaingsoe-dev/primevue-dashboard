@@ -66,7 +66,7 @@ const router = createRouter({
                     component: () => UserManagementUsersCreate
                 },
                 {
-                    path: '/dashboard/user-management/users/edit',
+                    path: '/dashboard/user-management/users/edit/:id',
                     name: 'dashboard-user-management-users-edit',
                     component: () => UserManagementUsersEdit
                 },
@@ -81,7 +81,7 @@ const router = createRouter({
                     component: () => UserManagementRolesCreate
                 },
                 {
-                    path: '/dashboard/user-management/roles/edit',
+                    path: '/dashboard/user-management/roles/edit/:id',
                     name: 'dashboard-user-management-roles-edit',
                     component: () => UserManagementRolesEdit
                 },
@@ -96,7 +96,7 @@ const router = createRouter({
                     component: () => UserManagementPermissionsCreate
                 },
                 {
-                    path: '/dashboard/user-management/permissions/edit',
+                    path: '/dashboard/user-management/permissions/edit/:id',
                     name: 'dashboard-user-management-permissions-edit',
                     component: () => UserManagementPermissionsEdit
                 }
