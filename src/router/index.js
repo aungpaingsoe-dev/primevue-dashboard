@@ -2,12 +2,12 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 import { get } from '@/services/cookie';
 import AppLayout from '@/layout/AppLayout.vue';
 // Auth Routes
-import Login from '@/views/auth/login.vue';
+import Login from '../views/auth/login.vue';
 // Dashboard Routes
-import Index from '@/views/index.vue';
+import Index from '../views/index.vue';
 import NotFound from '../views/not-found.vue';
 // Home
-import Home from '@/views/dashboard/home/index.vue';
+import Home from '../views/dashboard/home/index.vue';
 // Sa Core Management
 import SaCoreHrisAttended from '@/views/dashboard/sa-core-hris/attended/index.vue';
 import SaCoreHrisVecancy from '@/views/dashboard/sa-core-hris/vecancy/index.vue';
