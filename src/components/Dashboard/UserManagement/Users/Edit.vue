@@ -1,32 +1,23 @@
 <script setup>
-import axios from 'axios';
-import { get } from '@/services/cookie';
 import { useToast } from 'primevue/usetoast';
 import { useField, useForm } from 'vee-validate';
 import { ref, onMounted } from 'vue';
 import { useRouter, useRoute } from 'vue-router';
 const { handleSubmit, resetForm } = useForm();
 const loading = ref(false);
-const route = useRoute();
-const { id } = route.params;
 const router = useRouter();
+const route = useRoute();
 const toast = useToast();
-const currentUser = ref(null);
 
-// Get Current User
-const getCurrentUser = async () => {
-    await Http.get(`/v1/users/${id}`).then((response) => {
-        console.log(response);
-        currentUser.value = response.data;
+onMounted(async() => {
+    await Http.get(`v1/users/${route.params.id}`)
+    .then((response)=>{
+        console.log(response)
         usernameValue.value = response.data.name;
         emailValue.value = response.data.email;
-        rolesValue.value = response.data.roles;
-    });
-};
-
-onMounted(() => {
-    getCurrentUser();
-});
+        rolesValue.value = response.data.roles
+    })
+})
 
 // Username field
 const { value: usernameValue, errorMessage: usernameErrorMessage } = useField('username', (value) => validateField(value, 'Username'));
@@ -62,21 +53,20 @@ const onSubmit = handleSubmit(async (values) => {
     for (let i = 0; i < values.roles.length; i++) {
         assign_roles.push(values.roles[i].id);
     }
-    await Http.put('/v1/users/' + id, {
+    
+    await Http.put(`/v1/users/${route.params.id}`, {
         name: values.username,
         email: values.email,
         roles: assign_roles
     })
-    .then((response) => {
-        console.log(response)
-        // toast.add({ severity: 'success', summary: 'Success', detail: `${response.message}`, life: 3000 });
-        // resetForm();
-        // router.push({ name: 'dashboard-user-management-users' });
-    })
-    .finally(() => {
-        loading.value = false;
-    });
-
+        .then((response) => {
+            toast.add({ severity: 'success', summary: 'Success', detail: `${response.message}`, life: 3000 });
+            resetForm();
+            router.push({ name: 'dashboard-user-management-users' });
+        })
+        .finally(() => {
+            loading.value = false;
+        });
 });
 </script>
 

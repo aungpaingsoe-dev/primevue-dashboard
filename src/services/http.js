@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { useAuthStore } from '../stores/auth';
-import { remove } from '../services/cookie'
 
 const baseUrl = import.meta.env.VUE_APP_BASE_URL;
 
@@ -9,8 +8,7 @@ axios.interceptors.request.use(
     function (config) {
         const authStore = useAuthStore();
         config.headers['Authorization'] = 'Bearer ' + authStore.accessToken;
-        config.headers['Content-Type'] = 'application/json';
-        config.headers['Content-Type'] = 'multipart/form-data';
+        config.headers['Content-Type'] = 'application/json'; // Set Content-Type based on your requirements
         return config;
     },
     function (error) {
@@ -24,10 +22,7 @@ axios.interceptors.response.use(
     },
     (error) => {
         if (401 === error.response.status) {
-            // remove('access_token');
-            // remove('user_info');
-            // window.location.href = '/auth/login';
-            console.log(error)
+            console.log(error);
         }
         return Promise.reject(error.response);
     }
