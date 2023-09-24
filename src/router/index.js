@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import { get } from '@/services/cookie';
 import AppLayout from '@/layout/AppLayout.vue';
 // Auth Routes
@@ -23,7 +23,7 @@ import UserManagementPermissionsCreate from '@/views/dashboard/user-management/p
 import UserManagementPermissionsEdit from '@/views/dashboard/user-management/permissions/edit.vue';
 
 const router = createRouter({
-    history: createWebHashHistory(),
+    history: createWebHistory(),
     scrollBehavior: (to, from, savedPosition) => {
         return { x: 0, y: 0 };
     },
