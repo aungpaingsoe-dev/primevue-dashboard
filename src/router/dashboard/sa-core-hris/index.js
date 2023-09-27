@@ -5,12 +5,12 @@ const saCoreHrisRoutes = [
     {
         path: '/dashboard/sa-core-hris/attended',
         name: 'dashboard-sa-core-hris-attended',
-        component: () => SaCoreHrisAttended
+        component: SaCoreHrisAttended
     },
     {
         path: '/dashboard/sa-core-hris/vecancy',
         name: 'dashboard-sa-core-hris-vecancy',
-        component: () => SaCoreHrisVecancy
+        component: SaCoreHrisVecancy
     }
 ]
 

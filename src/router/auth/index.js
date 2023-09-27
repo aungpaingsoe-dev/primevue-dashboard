@@ -4,7 +4,7 @@ const authRoutes = [
     {
         path: '/auth/login',
         name: 'login',
-        component: () => Login
+        component: Login
     },
 ]   
 

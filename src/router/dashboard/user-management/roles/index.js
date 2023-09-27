@@ -6,17 +6,17 @@ const rolesRoutes = [
     {
         path: '/dashboard/user-management/roles',
         name: 'dashboard-user-management-roles',
-        component: () => UserManagementRoles
+        component: UserManagementRoles
     },
     {
         path: '/dashboard/user-management/roles/create',
         name: 'dashboard-user-management-roles-create',
-        component: () => UserManagementRolesCreate
+        component: UserManagementRolesCreate
     },
     {
         path: '/dashboard/user-management/roles/edit/:id',
         name: 'dashboard-user-management-roles-edit',
-        component: () => UserManagementRolesEdit
+        component: UserManagementRolesEdit
     }
 ];
 

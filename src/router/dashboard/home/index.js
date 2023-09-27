@@ -5,12 +5,12 @@ const homeRoutes = [
     {
         path: '/',
         name: 'index',
-        component: () => Index
+        component: Index
     },
     {
         path: '/dashboard/home',
         name: 'dashboard-home',
-        component: () => Home
+        component: Home
     }
 ];
 

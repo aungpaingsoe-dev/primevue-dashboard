@@ -6,17 +6,17 @@ const userManagementRoutes = [
     {
         path: '/dashboard/user-management/users',
         name: 'dashboard-user-management-users',
-        component: () => UserManagementUsers
+        component: UserManagementUsers
     },
     {
         path: '/dashboard/user-management/create',
         name: 'dashboard-user-management-create',
-        component: () => UserManagementUsersCreate
+        component: UserManagementUsersCreate
     },
     {
         path: '/dashboard/user-management/users/edit/:id',
         name: 'dashboard-user-management-users-edit',
-        component: () => UserManagementUsersEdit
+        component: UserManagementUsersEdit
     }
 ];
 

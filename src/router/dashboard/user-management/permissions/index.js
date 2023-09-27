@@ -6,17 +6,17 @@ const permissionsRoutes = [
     {
         path: '/dashboard/user-management/permissions',
         name: 'dashboard-user-management-permissions',
-        component: () => UserManagementPermissions
+        component: UserManagementPermissions
     },
     {
         path: '/dashboard/user-management/permissions/create',
         name: 'dashboard-user-management-permissions-create',
-        component: () => UserManagementPermissionsCreate
+        component: UserManagementPermissionsCreate
     },
     {
         path: '/dashboard/user-management/permissions/edit/:id',
         name: 'dashboard-user-management-permissions-edit',
-        component: () => UserManagementPermissionsEdit
+        component: UserManagementPermissionsEdit
     }
 ]
 

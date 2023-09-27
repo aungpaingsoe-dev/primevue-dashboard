@@ -4,7 +4,7 @@ const utliRoutes = [
     {
         path: '/:notFound',
         name: 'notFound',
-        component: () => NotFound
+        component: NotFound
     }
 ];
 
