@@ -3,8 +3,8 @@ import App from './App.vue';
 import router from './router';
 import '../src/assets/dashboard/styles.scss';
 import '@/assets/styles.scss';
-import { primevueComponents } from './services/registations/primevueComponents'
-import { chartComponents } from './services/registations/chartComponents'
+import { primevueComponents } from './services/wrapper/primevueComponents'
+import { chartComponents } from './services/wrapper/chartComponents'
 import { HTTP } from './services/http';
 import { createPinia } from 'pinia';
 

@@ -19,6 +19,7 @@
         "vee-validate": "^4.11.6",
         "vite-plugin-env-compatible": "^1.1.1",
         "vue": "^3.2.41",
+        "vue-fullscreen": "^3.0.8",
         "vue-router": "^4.1.5"
     },
     "devDependencies": {

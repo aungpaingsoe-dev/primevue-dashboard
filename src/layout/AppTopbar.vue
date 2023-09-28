@@ -7,7 +7,9 @@ const { layoutConfig, onMenuToggle } = useLayout();
 
 const outsideClickListener = ref(null);
 const topbarMenuActive = ref(false);
+let toggleClick = ref(false);
 const router = useRouter();
+const myDocument = document.documentElement;
 
 onMounted(() => {
     bindOutsideClickListener();
@@ -20,6 +22,41 @@ onBeforeUnmount(() => {
 const onTopBarMenuButton = () => {
     topbarMenuActive.value = !topbarMenuActive.value;
 };
+
+const getFullScreen = () => {
+    topbarMenuActive.value = !topbarMenuActive.value;
+    toggleClick.value = !toggleClick.value;
+    if (toggleClick.value) {
+        enterScreen();
+    } else {
+        exitScreen();
+    }
+};
+
+function enterScreen() {
+    if (myDocument.requestFullScreen) {
+        myDocument.requestFullScreen();
+    } else if (myDocument.msRequestFullScreen) {
+        myDocument.msRequestFullScreen();
+    } else if (myDocument.mozRequestFullScreen) {
+        myDocument.mozRequestFullScreen();
+    } else if (myDocument.webkitRequestFullScreen) {
+        myDocument.webkitRequestFullScreen();
+    }
+}
+
+function exitScreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.msExistFullScreen) {
+        document.msExistFullScreen();
+    } else if (document.mozExistFullScreen) {
+        document.mozExistFullScreen();
+    } else if (document.webkitExistFullScreen) {
+        document.webkitExistFullScreen();
+    }
+}
+
 const onSettingsClick = () => {
     topbarMenuActive.value = false;
     router.push('/documentation');
@@ -61,7 +98,7 @@ const isOutsideClicked = (event) => {
         <router-link to="/" class="layout-topbar-logo">
             <img src="/public/layout/images/dashboard/umg.png" alt="logo" />
             <span>UMG Myanmar</span>
-        </router-link>      
+        </router-link>
 
         <button class="p-link layout-menu-button layout-topbar-button" @click="onMenuToggle()">
             <i class="pi pi-bars"></i>
@@ -72,6 +109,21 @@ const isOutsideClicked = (event) => {
         </button>
 
         <div class="layout-topbar-menu" :class="topbarMenuClasses">
+            <button @click="getFullScreen()" class="p-link layout-topbar-button">
+                <!-- <i class="pi pi-desktop"></i> -->
+                <Dropdown>
+                    <template #dropdownicon>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
+                            <path
+                                fill="currentColor"
+                                d="M8 22a1 1 0 0 1-1-1v-4H3a1 1 0 0 1 0-2h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1zM8 9H3a1 1 0 0 1 0-2h4V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1zm13 0h-5a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v4h4a1 1 0 0 1 0 2zm-5 13a1 1 0 0 1-1-1v-5a1 1 0 0 1 1-1h5a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-1 1z"
+                            ></path>
+                        </svg>
+                    </template>
+                </Dropdown>
+                <span>Full Screen</span>
+            </button>
+
             <button @click="onTopBarMenuButton()" class="p-link layout-topbar-button">
                 <i class="pi pi-calendar"></i>
                 <span>Calendar</span>
@@ -80,9 +132,12 @@ const isOutsideClicked = (event) => {
                 <i class="pi pi-user"></i>
                 <span>Profile</span>
             </button>
-
         </div>
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.p-dropdown {
+    border: unset;
+}
+</style>
