@@ -30,7 +30,14 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="container">
+    <div class="card container">
+        <div class="text-end me-2 my-2">
+            <router-link to="/dashboard/user-management/permissions/create">
+                <button class="btn btn-primary btn-lg">
+                    Add
+                </button>
+            </router-link>
+        </div>
         <div class="row">
             <div class="col-12">
                 <DataTable :loading="loading" :value="permissions" paginator :rows="5" :rowsPerPageOptions="[5, 10, 20, 50]" tableStyle="min-width: 50rem">
