@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
+import FullScreen from '../components/Reusables/Icons/FullScreen.vue';
 import { useLayout } from '@/layout/composables/layout';
 import { useRouter } from 'vue-router';
 
@@ -96,7 +97,7 @@ const isOutsideClicked = (event) => {
 <template>
     <div class="layout-topbar">
         <router-link to="/" class="layout-topbar-logo">
-            <img src="/public/layout/images/dashboard/umg.png" alt="logo" />
+            <img src="/layout/images/dashboard/umg.png" alt="logo" />
             <span>UMG Myanmar</span>
         </router-link>
 
@@ -110,18 +111,7 @@ const isOutsideClicked = (event) => {
 
         <div class="layout-topbar-menu" :class="topbarMenuClasses">
             <button @click="getFullScreen()" class="p-link layout-topbar-button">
-                <!-- <i class="pi pi-desktop"></i> -->
-                <Dropdown>
-                    <template #dropdownicon>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
-                            <path
-                                fill="currentColor"
-                                d="M8 22a1 1 0 0 1-1-1v-4H3a1 1 0 0 1 0-2h5a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1zM8 9H3a1 1 0 0 1 0-2h4V3a1 1 0 0 1 2 0v5a1 1 0 0 1-1 1zm13 0h-5a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v4h4a1 1 0 0 1 0 2zm-5 13a1 1 0 0 1-1-1v-5a1 1 0 0 1 1-1h5a1 1 0 0 1 0 2h-4v4a1 1 0 0 1-1 1z"
-                            ></path>
-                        </svg>
-                    </template>
-                </Dropdown>
-                <span>Full Screen</span>
+                <FullScreen />
             </button>
 
             <button @click="onTopBarMenuButton()" class="p-link layout-topbar-button">

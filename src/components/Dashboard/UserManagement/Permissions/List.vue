@@ -30,12 +30,10 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="card container">
-        <div class="text-end me-2 my-2">
+    <div class="card">
+        <div class="text-end">
             <router-link to="/dashboard/user-management/permissions/create">
-                <button class="btn btn-primary btn-lg">
-                    Add
-                </button>
+                <Button icon="pi pi-plus" severity="secondary" outlined size="small" />
             </router-link>
         </div>
         <div class="row">
@@ -46,8 +44,7 @@ onMounted(() => {
                     <Column header="Actions">
                         <template #body="slotProps">
                             <div class="btn-group btn-sm">
-                                <button class="btn btn-outline-dark" @click="handleEditRole(slotProps.data)">Edit</button>
-                                <button class="btn btn-outline-dark" @click="handleDeleteRole(slotProps.data)">Delete</button>
+                                <Button icon="pi pi-pencil" severity="secondary" outlined size="small" @click="handleEditRole(slotProps.data)" />
                             </div>
                         </template>
                     </Column>

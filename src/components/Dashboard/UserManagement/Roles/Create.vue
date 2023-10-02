@@ -21,7 +21,6 @@
                             <Button type="submit" label="Submit"  />
                         </div>
                     </form>
-                    <Toast />
                 </div>
             </div>
         </div>

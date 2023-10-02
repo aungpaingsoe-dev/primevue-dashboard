@@ -47,21 +47,18 @@ onMounted(() => {
         <div class="row">
             <div class="col-12">
                 <DataTable :loading="loading" :value="users" paginator v-model:filters="filters" :rows="5" :rowsPerPageOptions="[5, 10, 20, 50]" tableStyle="min-width: 50rem" :globalFilterFields="['name', 'email']" filterDisplay="menu">
-                        <div class="flex justify-content-between mb-4">
-                            <!-- <Button type="button" icon="pi pi-filter-slash" label="Clear" outlined @click="clearFilter()" /> -->
-                            <span class="p-input-icon-left">
-                                <i class="pi pi-search" />
-                                <InputText placeholder="Keyword Search" v-model="filters['global'].value" />
-                            </span>
-                            <div>
-                                <router-link to="/dashboard/user-management/create">
-                                    <button class="btn btn-primary text-lg">Add</button>
-                                </router-link>
-                            </div>
+                    <div class="flex align-items-center justify-content-between mb-4">
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search" />
+                            <InputText placeholder="Keyword Search" v-model="filters['global'].value" />
+                        </span>
+                        <div>
+                            <router-link to="/dashboard/user-management/create">
+                                <Button icon="pi pi-plus" severity="secondary" outlined size="small" />
+                            </router-link>
                         </div>
-                    <template #empty> <p class="text-center">No Users found. </p></template>
-                    <!-- <template #loading> Loading customers data. Please wait. </template> -->
-
+                    </div>
+                    <template #empty> <p class="text-center">No Users found.</p></template>
                     <Column field="id" sortable header="Id"></Column>
                     <Column field="name" sortable header="Name"></Column>
                     <Column field="email" sortable header="Email"></Column>
@@ -75,9 +72,7 @@ onMounted(() => {
                     <Column field="created_at" sortable header="Created At"></Column>
                     <Column header="Actions">
                         <template #body="slotProps">
-                            <span class="p-buttonset">
-                                <Button icon="pi pi-pencil" severity="secondary" outlined size="small" @click="handleEditUser(slotProps.data)" />
-                            </span>
+                            <Button icon="pi pi-pencil" severity="secondary" outlined size="small" @click="handleEditUser(slotProps.data)" />
                         </template>
                     </Column>
                     <Column>

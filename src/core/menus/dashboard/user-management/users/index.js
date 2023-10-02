@@ -1,10 +1,10 @@
 const usersMenus = [{
     label: 'Users',
-    icon: 'pi pi-fw pi-bookmark',
+    icon: 'pi pi-users',
     items: [
         {
             label: 'List',
-            icon: 'pi pi-fw pi-bookmark',
+            icon: 'pi pi-list',
             to: '/dashboard/user-management/users'
         }
     ]

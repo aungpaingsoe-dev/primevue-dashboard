@@ -1,11 +1,11 @@
 const rolesMenus = [
     {
         label: 'Roles',
-        icon: 'pi pi-fw pi-bookmark',
+        icon: 'pi pi-id-card',
         items: [
             {
                 label: 'List',
-                icon: 'pi pi-fw pi-bookmark',
+                icon: 'pi pi-list',
                 to: '/dashboard/user-management/roles'
             }
         ]
