@@ -11,6 +11,10 @@ import homeRoutes from './dashboard/home';
 import saCoreHrisRoutes from './dashboard/sa-core-hris';
 // User Management
 import userManagementRoutes from './dashboard/user-management';
+// Turnovers
+import turnoversRoutes from './dashboard/turnovers';
+// Employee
+import employeeRoutes from './dashboard/employee';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -26,6 +30,10 @@ const router = createRouter({
                 ...homeRoutes,
                 // Sa Core Hris Management
                 ...saCoreHrisRoutes,
+                // Turnovers
+                ...turnoversRoutes,
+                // Employee
+                ...employeeRoutes,
                 // User Management
                 ...userManagementRoutes,
             ],
