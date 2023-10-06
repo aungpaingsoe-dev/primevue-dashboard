@@ -2,5 +2,5 @@
 import Turnovers from '@/components/Dashboard/Employees/Turnovers/Turnovers.vue';
 </script>
 <template>
-               <Turnovers />
+    <Turnovers />
 </template>

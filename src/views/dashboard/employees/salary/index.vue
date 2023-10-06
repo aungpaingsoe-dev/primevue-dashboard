@@ -1,5 +1,6 @@
 <script setup>
-import EmployeeSalary from '@/components/Dashboard/Employees/Salary/Salary.vue';</script>
+import EmployeeSalary from '@/components/Dashboard/Employees/Salary/Salary.vue';
+</script>
 <template>
-               <EmployeeSalary />
+    <EmployeeSalary />
 </template>
