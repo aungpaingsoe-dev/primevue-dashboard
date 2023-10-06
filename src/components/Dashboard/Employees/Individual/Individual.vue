@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+const documentStyle = getComputedStyle(document.documentElement);
 
 const events = ref([
     { date: '15/10/2020', position: 'CHLD HRD Dept', icon: 'pi pi-shopping-cart', color: '#9C27B0' },
@@ -15,46 +16,50 @@ const events = ref([
 <template>
     <div class="container-fluid card">
         <div class="row">
-            <div class="w-25 border">
-                <div class="px-1 py-1 rounded-3">
-                    <table class="table table-borderless">
-                        <tbody>
-                            <tr>
-                                <td>Position</td>
-                                <td>- ITDP</td>
-                            </tr>
-                            <tr>
-                                <td>Service Year</td>
-                                <td>- 3 year</td>
-                            </tr>
-                            <tr>
-                                <td>Business Unit</td>
-                                <td>- CHLD</td>
-                            </tr>
-                            <tr>
-                                <td>Department</td>
-                                <td>- QASA</td>
-                            </tr>
-                            <tr>
-                                <td>Status</td>
-                                <td>- Active</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            <!-- Postion Detail -->
+            <div class="col-lg-3 p-0 border">
+                <table class="table table-borderless align-middle">
+                    <tr>
+                        <td>Position</td>
+                        <td>-</td>
+                        <td>ITDP</td>
+                    </tr>
+                    <tr>
+                        <td>Service Year</td>
+                        <td>-</td>
+                        <td>3 year</td>
+                    </tr>
+                    <tr>
+                        <td>Business Unit</td>
+                        <td>-</td>
+                        <td>CHLD</td>
+                    </tr>
+                    <tr>
+                        <td>Department</td>
+                        <td>-</td>
+                        <td>QASA</td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>-</td>
+                        <td>Active</td>
+                    </tr>
+                </table>
             </div>
-            <div class="w-25 border">
-                <div class="p-3 rounded-3 d-flex flex-column align-items-center gap-1">
+            <!-- Profile -->
+            <div class="col-lg-3 p-0 border">
+                <div class="d-flex flex-column justify-content-center h-100 align-items-center gap-1">
                     <img src="/public/images/dashboard/employee_girl.png" class="employee-img" alt="" />
                     <div>Employee Name</div>
                     <div>ID - 19274</div>
                     <a href="#">Profile Detail</a>
                 </div>
             </div>
-            <div class="w-25 border">
-                <div class="px-2 rounded-3 py-3 d-flex flex-column align-items-center gap-2">
+            <!-- Employee Type -->
+            <div class="col-lg-3 p-0 border">
+                <div class="d-flex flex-column justify-content-center align-items-center gap-3 h-100">
                     <div class="fw-bold">Employee Type</div>
-                    <div class="d-flex gap-2 w-100 disc">
+                    <div class="d-flex justify-content-center gap-2 w-100 disc">
                         <div class="d-flex flex-column justify-content-center align-items-center">
                             <div class="disc-title">D</div>
                             <span class="disc-desc">Dominant</span>
@@ -74,71 +79,135 @@ const events = ref([
                     </div>
                 </div>
             </div>
-            <div class="w-25 border">
-                <div class="px-2 rounded-3 py-5 d-flex align-items-center gap-3">
-                    <div>
-                        <img src="../../../../../public/images/dashboard/award.png" class="award-img" alt="" />
-                    </div>
+            <!-- Award -->
+            <div class="col-lg-3 p-0 border">
+                <div class="d-flex flex-column justify-content-center align-items-center h-100 gap-3">
+                    <img src="/public/images/dashboard/award.png" class="award-img" alt="" />
                     <div>Best Project Owner awards of 2021</div>
                 </div>
             </div>
-        </div>
-        <div class="row mt-2">
-            <div class="w-25 border">
-                <div class="rounded-3">
-                    <div class="py-3">
-                        <Timeline :value="events">
-                            <template #opposite="slotProps">
-                                <small class="p-text-secondary">{{ slotProps.item.position }}</small>
-                            </template>
-                            <template #content="slotProps">
-                                {{ slotProps.item.date }}
-                            </template>
-                        </Timeline>
+            <!-- Career History -->
+            <div class="col-lg-3 p-0 border">
+                <div class="fw-bold text-center py-3">Providing Employee Service</div>
+                <Timeline :value="events">
+                    <template #opposite="slotProps">
+                        <small class="p-text-secondary">{{ slotProps.item.position }}</small>
+                    </template>
+                    <template #content="slotProps">
+                        {{ slotProps.item.date }}
+                    </template>
+                </Timeline>
+            </div>
+            <!-- Employee Service -->
+            <div class="col-lg-3 p-0 border">
+                <div class="p-2 border-bottom">
+                    <div class="fw-bold text-center py-2">Providing Employee Service</div>
+                    <div class="d-flex flex-column gap-2">
+                        <div class="d-flex justify-content-between">
+                            <div>Laptop</div>
+                            <div>no</div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div>Car</div>
+                            <div>no</div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div>Hotel</div>
+                            <div>no</div>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div>Sim Card</div>
+                            <div>no</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-2 border-top border-bottom">
+                    <div class="fw-bold text-center py-2">Attendance</div>
+                    <DoughnutChart />
+                </div>
+
+                <div class="p-2 border-top">
+                    <div class="fw-bold text-center py-2">Providing Employee Service</div>
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <td>Vrabel Warning</td>
+                                <td>yes</td>
+                            </tr>
+                            <tr>
+                                <td>Written Warning</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Final Warning</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- PA result -->
+            <div class="col-lg-3 p-0 border">
+                <div class="border-bottom">
+                    <div class="fw-bold text-center py-3">Providing Employee Service</div>
+                    <HorizontalBarChart
+                        :label="['Meet Expection', 'So So', 'Excellence', 'Poor', 'Exceed Expection']"
+                        :dataset="[
+                            {
+                                label: 'My First dataset',
+                                backgroundColor: documentStyle.getPropertyValue('--blue-500'),
+                                borderColor: documentStyle.getPropertyValue('--blue-500'),
+                                data: [1, 2, 3, 4, 5]
+                            }
+                        ]"
+                    />
+                </div>
+                <div class="d-flex flex-column gap-2 p-3 border-top">
+                    <div class="fw-bold text-center py-2">Recommend By PA result</div>
+                    <div class="d-flex justify-content-between">
+                        <div>Training Recommend</div>
+                        <div>no</div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div>Talent Recommend</div>
+                        <div>no</div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div>Promotion Recommend</div>
+                        <div>no</div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div>Transfer Recommend</div>
+                        <div>no</div>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <div>Demotion Recommend</div>
+                        <div>no</div>
                     </div>
                 </div>
             </div>
-            <div class="w-25 p-1 ">
-                <div class="rounded-3 border ">
-                    <div class="px-1 py-1 rounded-3">
-                        <table class="table table-borderless">
-                            <tbody>
-                                <tr>
-                                    <td>Laptop</td>
-                                    <td>
-                                        icon
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Car </td>
-                                    <td>icon</td>
-                                </tr>
-                                <tr>
-                                    <td>Hotel</td>
-                                    <td>icon</td>
-                                </tr>
-                                <tr>
-                                    <td>Sim Card</td>
-                                    <td>icon</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <!-- Attendance -->
+            <div class="col-lg-3 p-0 border">
+                <div class=" border-bottom p-3">
+                    <LineChart
+                        :label="['Staff', 'Sr.Staff', 'Section Head']"
+                        :dataset="[
+                            {
+                                label: 'First Dataset',
+                                data: [1, 2, 5],
+                                fill: false,
+                                borderColor: documentStyle.getPropertyValue('--blue-500'),
+                                tension: 0.4
+                            }
+                        ]"
+                    />
                 </div>
-                <div class="rounded-3 border">
-                    <div class="px-1 py-1 rounded-3">
-                        Attendance
+                <div class=" border-top">
+                    <div class="fw-bold text-center py-3">
+                        Attendance of Training
                     </div>
-                </div>
-                <div class="rounded-3 border">
-                    <div class="px-1 py-1 rounded-3">
-                        Warning
-                    </div>
-                </div>
-            </div>
-            <div class="w-25 p-1">
-                <div>
-                    
+                    <DoughnutChart />
                 </div>
             </div>
         </div>

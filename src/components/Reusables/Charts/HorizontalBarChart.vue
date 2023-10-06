@@ -12,13 +12,18 @@ onMounted(() => {
 
 const chartData = ref();
 const chartOptions = ref();
-
-const setChartData = () => {
-    const documentStyle = getComputedStyle(document.documentElement);
-
-    return {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [
+const props = defineProps({
+    label: {
+        type: Array,
+        default() {
+            return  ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+        }
+    },
+    dataset: {
+        type: Array,
+        default() {
+           const documentStyle = getComputedStyle(document.documentElement);
+            return[
             {
                 label: 'My First dataset',
                 backgroundColor: documentStyle.getPropertyValue('--blue-500'),
@@ -31,24 +36,38 @@ const setChartData = () => {
                 borderColor: documentStyle.getPropertyValue('--pink-500'),
                 data: [28, 48, 40, 19, 86, 27, 90]
             }
-        ]
+            ]
+        }
+    }
+})
+const setChartData = () => {
+
+    return {
+        labels: props.label,
+        datasets: props.dataset,
+        barThickness: 6
     };
 };
 const setChartOptions = () => {
     const documentStyle = getComputedStyle(document.documentElement);
-    const textColor = documentStyle.getPropertyValue('--text-color');
+    // const textColor = documentStyle.getPropertyValue('--text-color');
     const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
     const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
 
     return {
+        // options: {
+        //     aspectRatio: 2.8
+        // },
+        la: 90,
         indexAxis: 'y',
         maintainAspectRatio: false,
         aspectRatio: 0.8,
         plugins: {
             legend: {
-                labels: {
-                    fontColor: textColor
-                }
+                display: false,
+                // labels: {
+                //     fontColor: textColor
+                // }
             }
         },
         scales: {

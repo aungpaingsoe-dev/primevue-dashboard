@@ -5,6 +5,37 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
+const props = defineProps({
+    label: {
+        type: Array,
+        default() {
+            return ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        }
+    },
+    dataset: {
+        type: Array,
+        default() {
+            const documentStyle = getComputedStyle(document.documentElement);
+            return [
+                {
+                    label: 'First Dataset',
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    fill: false,
+                    borderColor: documentStyle.getPropertyValue('--blue-500'),
+                    tension: 0.4
+                },
+                {
+                    label: 'Second Dataset',
+                    data: [28, 48, 40, 19, 86, 27, 90],
+                    fill: false,
+                    borderColor: documentStyle.getPropertyValue('--pink-500'),
+                    tension: 0.4
+                }
+            ];
+        }
+    }
+});
+
 onMounted(() => {
     chartData.value = setChartData();
     chartOptions.value = setChartOptions();
@@ -14,26 +45,9 @@ const chartData = ref();
 const chartOptions = ref();
 
 const setChartData = () => {
-    const documentStyle = getComputedStyle(document.documentElement);
-
     return {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [
-            {
-                label: 'First Dataset',
-                data: [65, 59, 80, 81, 56, 55, 40],
-                fill: false,
-                borderColor: documentStyle.getPropertyValue('--blue-500'),
-                tension: 0.4
-            },
-            {
-                label: 'Second Dataset',
-                data: [28, 48, 40, 19, 86, 27, 90],
-                fill: false,
-                borderColor: documentStyle.getPropertyValue('--pink-500'),
-                tension: 0.4
-            }
-        ]
+        labels: props.label,
+        datasets: props.dataset
     };
 };
 const setChartOptions = () => {
@@ -58,6 +72,7 @@ const setChartOptions = () => {
                     color: textColorSecondary
                 },
                 grid: {
+                    drawOnChartArea: false,
                     color: surfaceBorder
                 }
             },
@@ -66,6 +81,7 @@ const setChartOptions = () => {
                     color: textColorSecondary
                 },
                 grid: {
+                    drawOnChartArea: false,
                     color: surfaceBorder
                 }
             }
