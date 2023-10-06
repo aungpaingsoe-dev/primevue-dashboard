@@ -5,20 +5,18 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-onMounted(() => {
-    chartData.value = setChartData();
-    chartOptions.value = setChartOptions();
-});
-
-const chartData = ref();
-const chartOptions = ref();
-
-const setChartData = () => {
-    const documentStyle = getComputedStyle(document.documentElement);
-
-    return {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [
+const props  = defineProps({
+    label: {
+        type: Array,
+        default() {
+        return ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    }
+    },
+    dataset: {
+        type: Array ,
+        default() {
+            const documentStyle = getComputedStyle(document.documentElement);
+            return [
             {
                 label: 'First Dataset',
                 data: [65, 59, 80, 81, 56, 55, 40],
@@ -34,6 +32,22 @@ const setChartData = () => {
                 tension: 0.4
             }
         ]
+        }
+    }
+   
+})
+onMounted(() => {
+    chartData.value = setChartData();
+    chartOptions.value = setChartOptions();
+});
+
+const chartData = ref();
+const chartOptions = ref();
+
+const setChartData = () => {
+    return {
+        labels: props.label,
+        datasets: props.dataset
     };
 };
 const setChartOptions = () => {
@@ -58,6 +72,7 @@ const setChartOptions = () => {
                     color: textColorSecondary
                 },
                 grid: {
+                    drawOnChartArea: false,
                     color: surfaceBorder
                 }
             },
@@ -66,6 +81,7 @@ const setChartOptions = () => {
                     color: textColorSecondary
                 },
                 grid: {
+                    drawOnChartArea: false,
                     color: surfaceBorder
                 }
             }

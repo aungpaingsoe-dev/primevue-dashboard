@@ -11,29 +11,41 @@ const props = defineProps({
             return ['Q1', 'Q2', 'Q3', 'Q4'];
         }
     },
-    data: {
+    dataset: {
         type: Array,
         default() {
-            return [540, 325, 702, 620];
+            return [
+                {
+                    label: 'Sales',
+                    data: [540, 325, 702, 620],
+                    backgroundColor: ['rgba(255, 159, 64, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+                    borderColor: ['rgb(255, 159, 64)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
+                }
+            ];
         }
     }
 });
 const chartData = ref({
-    labels:  props.label,
-    datasets: [
-        {
-            label: 'Sales',
-            data: props.data,
-            backgroundColor: ['rgba(255, 159, 64, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)'],
-            borderColor: ['rgb(255, 159, 64)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)'],
-        }
-    ]
+    labels: props.label,
+    datasets: props.dataset.map(datasetItem => ({
+        ...datasetItem, // Copy the existing dataset properties
+        barPercentage: 1, // Set the desired barPercentage value
+      })),
 });
 const chartOptions = ref({
     scales: {
+        x: {
+            grid: {
+                drawOnChartArea: false,
+            }
+        },
         y: {
+            grid: {
+                drawOnChartArea: false,
+            },
             beginAtZero: true
         }
-    }
+    },
+    maintainAspectRatio: false
 });
 </script>

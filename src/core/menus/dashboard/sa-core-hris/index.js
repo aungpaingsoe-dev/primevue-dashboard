@@ -17,6 +17,11 @@ const saCoreHrisMenus = [
                 icon: 'pi pi-fw pi-bookmark',
                 to: '/dashboard/sa-core-hris/today-attendance'
             },
+            {
+                label: 'Training',
+                icon: 'pi pi-fw pi-bookmark',
+                to: '/dashboard/sa-core-hris/training'
+            },
         ]
     },
 ]
