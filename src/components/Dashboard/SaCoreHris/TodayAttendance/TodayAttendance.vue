@@ -34,17 +34,17 @@ const dataset = {
     <div class="row ">
         <div class="col-4 attendance" >
                <h4 class="text-center font-bold">Bago Todays Attendance List</h4>
-            <HorizontalBarChart :dataset="dataset.dataset1" :label="label" class="h-full pb-4"/>
+            <HorizontalBarChart :datasets="dataset.dataset1" :labels="label" class="h-full pb-4"/>
         </div>
 
         <div class="col-4 attendance" >
                <h4 class="text-center font-bold">CE1 Todays Attendance List</h4>
-            <HorizontalBarChart :dataset="dataset.dataset2" :label="label" class="h-full pb-4"/>
+            <HorizontalBarChart :datasets="dataset.dataset2" :labels="label" class="h-full pb-4"/>
         </div>
 
         <div class="col-4 attendance" >
                <h4 class="text-center font-bold">Dawei Todays Attendance List</h4>
-            <HorizontalBarChart :dataset="dataset.dataset3" :label="label" class="h-full pb-4"/>
+            <HorizontalBarChart :datasets="dataset.dataset3" :labels="label" class="h-full pb-4"/>
         </div>
 
     </div>

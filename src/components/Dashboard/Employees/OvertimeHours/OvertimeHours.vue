@@ -35,19 +35,19 @@ const datasetLine = [
                 <h3 class="text-center font-bold pb-2">Overtime Cost by Monthly</h3>
                 <div class="box">
                     <div :style="{ height: `${scrollHeight}px` }">
-                        <HorizontalBarChart :dataset="dataset" :label="label" class="h-full" />
+                        <HorizontalBarChart :datasets="dataset" :labels="label" class="h-full" />
                     </div>
                 </div>
             </div>
             <div class="col-7">
                 <h3 class="text-center">Overtime Cost by Monthly</h3>
                 <div class="lineBox">
-                    <LineChart class="h-full" :dataset="datasetLine" />
+                    <LineChart class="h-full" :datasets="datasetLine" />
                 </div>
 
                 <div class="row pt-3 horizontalBox">
                     <div class="col-6 ">
-                        <HorizontalBarChart class="h-full" :dataset="dataset" />
+                        <HorizontalBarChart class="h-full" :datasets="dataset" />
                     </div>
                     <div class="col-6">
                         <LineChart class="h-full"/>

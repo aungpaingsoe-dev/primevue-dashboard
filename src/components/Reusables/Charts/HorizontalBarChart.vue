@@ -13,13 +13,13 @@ onMounted(() => {
 const chartData = ref();
 const chartOptions = ref();
 const props = defineProps({
-    label: {
+    labels: {
         type: Array,
         default() {
             return  ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
         }
     },
-    dataset: {
+    datasets: {
         type: Array,
         default() {
            const documentStyle = getComputedStyle(document.documentElement);
@@ -43,8 +43,8 @@ const props = defineProps({
 const setChartData = () => {
 
     return {
-        labels: props.label,
-        datasets: props.dataset,
+        labels: props.labels,
+        datasets: props.datasets,
         barThickness: 6
     };
 };

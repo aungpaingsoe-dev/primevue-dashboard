@@ -48,7 +48,7 @@ const resignDataset = [
             <div class="col-4">
                 <div class="border-1 p-5 rounded-3 vertical">
                     <h5>Confirmation</h5>
-                    <BarChart class="h-full pb-4" :label="confirmationLabel" :dataset="confirmationDataset"/>
+                    <BarChart class="h-full pb-4" :labels="confirmationLabel" :datasets="confirmationDataset"/>
                 </div>
             </div>
 
@@ -56,7 +56,7 @@ const resignDataset = [
             <div class="col-4">
                 <div class="border-1 p-5 rounded-3 vertical">
                     <h5 >Increment</h5>
-                    <BarChart class="h-full pb-4" :label="confirmationLabel" :dataset="confirmationDataset"/>
+                    <BarChart class="h-full pb-4" :labels="confirmationLabel" :datasets="confirmationDataset"/>
                 </div>
             </div>
 
@@ -74,7 +74,7 @@ const resignDataset = [
             <div class="col-4">
                 <div class="border-1 p-5 rounded-3 vertical">
                     <h5>Promotion</h5>
-                    <BarChart class="h-full pb-4" :label="confirmationLabel" :dataset="confirmationDataset"/>
+                    <BarChart class="h-full pb-4" :labels="confirmationLabel" :datasets="confirmationDataset"/>
                 </div>
             </div>
 
@@ -82,7 +82,7 @@ const resignDataset = [
             <div class="col-4">
                 <div class="border-1 p-5 rounded-3 vertical">
                     <h5 >Demotation</h5>
-                    <BarChart class="h-full pb-4" :label="confirmationLabel" :dataset="confirmationDataset"/>
+                    <BarChart class="h-full pb-4" :labels="confirmationLabel" :datasets="confirmationDataset"/>
                 </div>
             </div>
 
@@ -90,7 +90,7 @@ const resignDataset = [
                  <div class="col-4">
                 <div class="border-1 p-5 rounded-3 vertical">
                     <h5 >Resign-Termination</h5>
-                    <BarChart class="h-full pb-4" :label="label" :dataset="resignDataset"/>
+                    <BarChart class="h-full pb-4" :labels="label" :datasets="resignDataset"/>
                 </div>
             </div>
         </div>

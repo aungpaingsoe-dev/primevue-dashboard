@@ -6,13 +6,13 @@
 import { ref, onMounted } from 'vue';
 
 const props = defineProps({
-    label: {
+    labels: {
         type: Array,
         default() {
             return ['Jan', 'Feb', 'Mar', 'April', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         }
     },
-    dataset: {
+    datasets: {
         type: Array,
         default() {
             const documentStyle = getComputedStyle(document.documentElement);
@@ -46,8 +46,8 @@ const chartOptions = ref();
 
 const setChartData = () => {
     return {
-        labels: props.label,
-        datasets: props.dataset
+        labels: props.labels,
+        datasets: props.datasets
     };
 };
 const setChartOptions = () => {

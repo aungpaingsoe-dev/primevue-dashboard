@@ -152,8 +152,8 @@ const events = ref([
                 <div class="border-bottom">
                     <div class="fw-bold text-center py-3">Providing Employee Service</div>
                     <HorizontalBarChart
-                        :label="['Meet Expection', 'So So', 'Excellence', 'Poor', 'Exceed Expection']"
-                        :dataset="[
+                        :labels="['Meet Expection', 'So So', 'Excellence', 'Poor', 'Exceed Expection']"
+                        :datasets="[
                             {
                                 label: 'My First dataset',
                                 backgroundColor: documentStyle.getPropertyValue('--blue-500'),
@@ -191,8 +191,8 @@ const events = ref([
             <div class="col-lg-3 p-0 border">
                 <div class=" border-bottom p-3">
                     <LineChart
-                        :label="['Staff', 'Sr.Staff', 'Section Head']"
-                        :dataset="[
+                        :labels="['Staff', 'Sr.Staff', 'Section Head']"
+                        :datasets="[
                             {
                                 label: 'First Dataset',
                                 data: [1, 2, 5],

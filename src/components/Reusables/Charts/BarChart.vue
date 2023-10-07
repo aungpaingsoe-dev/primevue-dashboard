@@ -5,13 +5,13 @@
 <script setup>
 import { ref } from 'vue';
 const props = defineProps({
-    label: {
+    labels: {
         type: Array,
         default() {
             return ['Q1', 'Q2', 'Q3', 'Q4'];
         }
     },
-    dataset: {
+    datasets: {
         type: Array,
         default() {
             return [
@@ -26,8 +26,8 @@ const props = defineProps({
     }
 });
 const chartData = ref({
-    labels: props.label,
-    datasets: props.dataset.map(datasetItem => ({
+    labels: props.labels,
+    datasets: props.datasets.map(datasetItem => ({
         ...datasetItem, // Copy the existing dataset properties
         barPercentage: 1, // Set the desired barPercentage value
       })),
