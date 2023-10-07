@@ -58,36 +58,36 @@
             </div>
         </div>
         <div class="d-flex my-3 row">
-            <div class="w-40">
-                <div class="border rounded-4 p-4">
-                    <BarChart class="h-18rem" />
+            <div class="w-40 h-21rem">
+                <div class="border rounded-4 p-4 h-full">
+                    <BarChart class="h-full" />
                 </div>
             </div>
-            <div class="w-30">
-                <div class="border rounded-4 p-4">
-                    <DoughnutChart class="h-18rem" />
+            <div class="w-30 h-21rem">
+                <div class="border rounded-4 p-4 h-full">
+                    <DoughnutChart class="h-full" />
                 </div>
             </div>
-            <div class="w-30">
-                <div class="border rounded-4 p-4">
-                    <DoughnutChart class="h-18rem" />
+            <div class="w-30 h-21rem">
+                <div class="border rounded-4 p-4 h-full" >
+                    <DoughnutChart class="h-full" />
                 </div>
             </div>
         </div>
         <div class="d-flex my-3 row">
-            <div class="w-40">
-                <div class="border rounded-4 p-4">
-                    <BarChart class="h-18rem" />
+            <div class="w-40 h-21rem">
+                <div class="border rounded-4 p-4 h-full">
+                    <BarChart class="h-full" />
                 </div>
             </div>
-            <div class="w-30">
-                <div class="border rounded-4 p-4">
-                    <HorizontalBarChart class="h-18rem" />
+            <div class="w-30 h-21rem">
+                <div class="border rounded-4 p-4 h-full">
+                    <HorizontalBarChart class="h-full" />
                 </div>
             </div>
-            <div class="w-30">
-                <div class="border rounded-4 p-4">
-                    <DoughnutChart class="h-18rem" />
+            <div class="w-30 h-21rem">
+                <div class="border rounded-4 p-4 h-full">
+                    <DoughnutChart class=" h-full" />
                 </div>
             </div>
         </div>

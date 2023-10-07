@@ -2,7 +2,7 @@
     <div class="container-fluid card p-3">
         <div class="row">
             <div class="col-md-4">
-                <div class="border rounded-5 p-5" style="height: 200px">
+                <div class="border rounded-5 p-5 h-20rem">
                     <div class="d-flex flex-column gap-5 h-100 justify-content-center">
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="text-xl">25 Jan 2022</div>
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="border rounded-5 p-5" style="height: 200px">
+                <div class="border rounded-5 p-5 h-20rem">
                     <div class="d-flex flex-column gap-5 h-100 justify-content-center">
                         <div class="d-flex align-items-center justify-content-between">
                             <div class="text-xl">25 Jan 2022</div>
@@ -54,7 +54,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="border rounded-5 p-5" style="height: 200px">
+                <div class="border rounded-5 p-5 h-20rem">
                     <div class="d-flex flex-column gap-5 h-100 justify-content-center">
                         <BarChart />
                     </div>
@@ -62,19 +62,19 @@
             </div>
         </div>
         <div class="row my-4">
-            <div class="col-md-4">
-                <div class="border rounded-5 p-5" style="height: 200px">
-                    <BarChart />
+            <div class="col-md-4  h-20rem">
+                <div class="border rounded-5 p-5 h-full">
+                    <BarChart class="h-full"/>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="border rounded-5 p-5" style="height: 200px">
-                    <BarChart />
+            <div class="col-md-4 h-20rem">
+                <div class="border rounded-5 p-5 h-full">
+                    <BarChart class="h-full"/>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="border rounded-5 p-5" style="height: 200px">
-                    <BarChart />
+            <div class="col-md-4 h-20rem">
+                <div class="border rounded-5 p-5 h-full ">
+                    <BarChart class="h-full"/>
                 </div>
             </div>
         </div>
