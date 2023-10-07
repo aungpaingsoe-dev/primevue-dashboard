@@ -1,5 +1,8 @@
 <script setup>
 import { ref, onMounted } from 'vue';
+import { useRouter, useRoute} from 'vue-router';
+const router = useRouter();
+const route = useRoute();
 const roles = ref([]);
 const loading = ref(true);
 
@@ -18,6 +21,12 @@ const getRoles = async () => {
 
 const handleEditRole = (role) => {
     console.log(role);
+    router.push({
+        name: 'dashboard-user-management-roles-edit',
+        params: {
+            id: role.id
+        }
+    });
 };
 
 const handleDeleteRole = (role) => {
