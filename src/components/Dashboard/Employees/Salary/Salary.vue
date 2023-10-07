@@ -1,14 +1,22 @@
 <script setup>
 import DollarIcon from '@/components/Reusables/Icons/Dollar.vue';
 const label = ['Tp Management', 'General', 'Assistant', 'Senior Developer', 'Department', 'Section', 'Staff', 'ot'];
-const data = [540, 325, 702, 620, 400, 100, 210, 700];
+
+const data = [
+    {
+        label: 'Sales',
+        data: [540, 325, 702, 620, 400, 100, 210, 700],
+        backgroundColor: ['rgba(255, 159, 64, 0.2)', 'rgba(75, 192, 192, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(153, 102, 255, 0.2)'],
+        borderColor: ['rgb(255, 159, 64)', 'rgb(75, 192, 192)', 'rgb(54, 162, 235)', 'rgb(153, 102, 255)']
+    }
+];
 </script>
 <template>
     <div class="card container-fluid">
         <div class="row">
             <div class="col-7">
                 <h3 class="text-center font-bold">Level of total salary</h3>
-                <BarChart :label="label" :data="data" />
+                <BarChart :labels="label" :datasets="data" />
             </div>
             <div class="col-3 m-4">
                 <div class="p-5 d-flex justify-content-center align-items-center border-1 dollarBox">
