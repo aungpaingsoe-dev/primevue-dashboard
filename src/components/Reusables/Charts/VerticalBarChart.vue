@@ -1,9 +1,30 @@
 <template>
-    <Chart type="bar" :data="chartData" :options="chartOptions"/>
+    <Chart type="bar" :data="chartData" :options="chartOptions" style="width: 100% !important" />
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, defineProps } from 'vue';
+
+const { labels, datasets } = defineProps({
+    labels: {
+        type: Array,
+        default: ['January', 'February', 'March', 'April', 'May', 'June', 'July']
+    },
+    datasets: {
+        type: Array,
+        default() {
+            const documentStyle = getComputedStyle(document.documentElement);
+            return [
+                {
+                    label: 'My First dataset',
+                    backgroundColor: documentStyle.getPropertyValue('--blue-500'),
+                    borderColor: documentStyle.getPropertyValue('--blue-500'),
+                    data: [65, 59, 80, 81, 56, 55, 40]
+                }
+            ];
+        }
+    }
+});
 
 onMounted(() => {
     chartData.value = setChartData();
@@ -17,21 +38,8 @@ const setChartData = () => {
     const documentStyle = getComputedStyle(document.documentElement);
 
     return {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-        datasets: [
-            {
-                label: 'My First dataset',
-                backgroundColor: documentStyle.getPropertyValue('--blue-500'),
-                borderColor: documentStyle.getPropertyValue('--blue-500'),
-                data: [65, 59, 80, 81, 56, 55, 40]
-            },
-            {
-                label: 'My Second dataset',
-                backgroundColor: documentStyle.getPropertyValue('--pink-500'),
-                borderColor: documentStyle.getPropertyValue('--pink-500'),
-                data: [28, 48, 40, 19, 86, 27, 90]
-            }
-        ]
+        labels: labels,
+        datasets: datasets
     };
 };
 const setChartOptions = () => {

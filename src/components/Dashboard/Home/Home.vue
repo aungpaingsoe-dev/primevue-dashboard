@@ -65,12 +65,12 @@
             </div>
             <div class="w-30">
                 <div class="border rounded-4 p-4">
-                    <DoughnuChart class="h-18rem" />
+                    <DoughnutChart class="h-18rem" />
                 </div>
             </div>
             <div class="w-30">
                 <div class="border rounded-4 p-4">
-                    <DoughnuChart class="h-18rem" />
+                    <DoughnutChart class="h-18rem" />
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@
             </div>
             <div class="w-30">
                 <div class="border rounded-4 p-4">
-                    <DoughnuChart class="h-18rem" />
+                    <DoughnutChart class="h-18rem" />
                 </div>
             </div>
         </div>

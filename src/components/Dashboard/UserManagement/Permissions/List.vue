@@ -16,11 +16,7 @@ const getPermissions = async () => {
         });
 };
 
-const handleEditRole = (permission) => {
-    console.log(permission);
-};
-
-const handleDeleteRole = (permission) => {
+const handleEditPermission = (permission) => {
     console.log(permission);
 };
 
@@ -43,9 +39,7 @@ onMounted(() => {
                     <Column field="name" sortable header="Name"></Column>
                     <Column header="Actions">
                         <template #body="slotProps">
-                            <div class="btn-group btn-sm">
-                                <Button icon="pi pi-pencil" severity="secondary" outlined size="small" @click="handleEditRole(slotProps.data)" />
-                            </div>
+                            <Button icon="pi pi-pencil" severity="secondary" outlined size="small" @click="handleEditPermission(slotProps.data)" />
                         </template>
                     </Column>
                     <Column>

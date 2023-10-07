@@ -33,9 +33,7 @@ onMounted(() => {
     <div class="card container">
         <div class="text-end me-2 my-2">
             <router-link to="/dashboard/user-management/roles/create">
-                <button class="btn btn-primary btn-lg">
-                    Add
-                </button>
+                <Button icon="pi pi-plus" severity="secondary" outlined size="small" />
             </router-link>
         </div>
         <div class="row">
@@ -45,10 +43,7 @@ onMounted(() => {
                     <Column field="name" sortable header="Name"></Column>
                     <Column header="Actions">
                         <template #body="slotProps">
-                            <div class="btn-group btn-sm">
-                                <button class="btn btn-outline-dark" @click="handleEditRole(slotProps.data)">Edit</button>
-                                <button class="btn btn-outline-dark" @click="handleDeleteRole(slotProps.data)">Delete</button>
-                            </div>
+                            <Button icon="pi pi-pencil" severity="secondary" outlined size="small" @click="handleEditRole(slotProps.data)" />
                         </template>
                     </Column>
                     <Column>

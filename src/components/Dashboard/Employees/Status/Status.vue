@@ -7,13 +7,13 @@
                     <div class=" d-flex justify-content-center ">
                         <div>
                             <img 
-                            src="../../../../../public/images/dashboard/employee_man.png" 
+                            src="/images/dashboard/employee_man.png" 
                             style="height: 80px" 
                             alt="" />
                         </div>
                         <div>
                             <img 
-                            src="../../../../../public/images/dashboard/employee_girl.png" 
+                            src="/images/dashboard/employee_girl.png" 
                             style="height: 80px"
                             alt="" />
                         </div>
@@ -45,7 +45,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-5">
             <div class="col-lg-3 p-1">
                 <div class=" d-flex justify-content-center flex-column align-items-center gap-3">
                     <div>Today Attendance Status</div>

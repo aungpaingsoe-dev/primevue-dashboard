@@ -1,49 +1,40 @@
 <script setup>
-import DollarIcon from '@/components/Reusables/Icons/Dollar.vue'
-const label = ['Tp Management', 'General', 'Assistant', 'Senior Developer' , 'Department', 'Section', 'Staff', 'ot'];
-const data = [540, 325, 702, 620,400,100,210, 700]
+import DollarIcon from '@/components/Reusables/Icons/Dollar.vue';
+const label = ['Tp Management', 'General', 'Assistant', 'Senior Developer', 'Department', 'Section', 'Staff', 'ot'];
+const data = [540, 325, 702, 620, 400, 100, 210, 700];
 </script>
 <template>
-               <div class="card container-fluid">
-                              <!-------------  LEVEL OF TOTAL SALARY   --------------->
-                              <div class="row ">
-                                             <div class="col-7  ">
-                                                            <h3 class="text-center font-bold">Level of total salary</h3>
-                                                            <BarChart 
-                                                            :label="label" :data="data"/>
-                                             </div>
-                                             <div class="col-3 m-4">
-                                                           <div class="p-5 d-flex justify-content-center align-items-center  
-                                                           border-1
-                                                           dollarBox
-                                                           ">
-                                                            <DollarIcon class="me-3"/>
-                                                           <p class="">
-                                                            400
-                                                           </p>
-                                                           </div>
-                                             </div>
-                              </div>
-                              <!-------------------  NUMBER OF SALARY MANPOWER   --------------->
-                              <div class="mt-5 row">
-                                             <div class="horizontalBar col-7">
-                                             <h3 class="text-center font-bold">Number of salary manpower (MMK)</h3>
-                                                            <HorizontalBarChart
-                                                            class="h-full pb-4"  />
-                                             </div>
-                              </div>
-               </div>
+    <div class="card container-fluid">
+        <div class="row">
+            <div class="col-7">
+                <h3 class="text-center font-bold">Level of total salary</h3>
+                <BarChart :label="label" :data="data" />
+            </div>
+            <div class="col-3 m-4">
+                <div class="p-5 d-flex justify-content-center align-items-center border-1 dollarBox">
+                    <DollarIcon class="me-3" />
+                    <p class="">400</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 row">
+            <div class="horizontalBar col-7">
+                <h3 class="text-center font-bold">Number of salary manpower (MMK)</h3>
+                <HorizontalBarChart class="h-full pb-4" />
+            </div>
+        </div>
+    </div>
 </template>
 <style scoped>
-.dollarBox{
-               height: 150px;
-               border-radius: 30px;
+.dollarBox {
+    height: 150px;
+    border-radius: 30px;
 }
 .dollarBox p {
-               font-size: 30px;
-               font-weight: bold;
+    font-size: 30px;
+    font-weight: bold;
 }
-.horizontalBar{
-               height: 380px
+.horizontalBar {
+    height: 380px;
 }
 </style>

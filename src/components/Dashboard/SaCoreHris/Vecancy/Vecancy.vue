@@ -41,12 +41,12 @@
             </div>
             <div class="col-md-4">
                 <div class="border rounded-5 p-5" style="height: 300px">
-                    <DoughnuChart />
+                    <DoughnutChart />
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="border rounded-5 p-5" style="height: 300px">
-                    <DoughnuChart />
+                    <DoughnutChart />
                 </div>
             </div>
         </div>

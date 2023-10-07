@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+canvas{
+    width: 100% !important;
+}
+
 html {
     height: 100%;
     font-size: $scale;
