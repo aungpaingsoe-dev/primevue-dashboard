@@ -5,6 +5,9 @@ import AppFooter from './AppFooter.vue';
 import AppSidebar from './AppSidebar.vue';
 import AppConfig from './AppConfig.vue';
 import { useLayout } from '@/layout/composables/layout';
+import { useProgressStore } from '../stores/utli/progress';
+
+const progressStore = useProgressStore();
 
 const { layoutConfig, layoutState, isSidebarActive } = useLayout();
 
