@@ -5,10 +5,9 @@ import AppFooter from './AppFooter.vue';
 import AppSidebar from './AppSidebar.vue';
 import AppConfig from './AppConfig.vue';
 import { useLayout } from '@/layout/composables/layout';
-import { useProgressStore } from '../stores/utli/progress';
+import { useProgressStore } from '@/stores/utli/progress';
 
 const progressStore = useProgressStore();
-
 const { layoutConfig, layoutState, isSidebarActive } = useLayout();
 
 const outsideClickListener = ref(null);
@@ -62,6 +61,10 @@ const isOutsideClicked = (event) => {
 
 <template>
     <div class="layout-wrapper" :class="containerClass">
+<div v-show="progressStore.status">
+    <ProgressBar mode="indeterminate" style="height: 2px; z-index: 999;" ></ProgressBar>
+</div>
+       
         <app-topbar></app-topbar>
         <div class="layout-sidebar">
             <app-sidebar></app-sidebar>

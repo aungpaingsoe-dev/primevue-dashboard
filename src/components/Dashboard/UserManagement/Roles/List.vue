@@ -1,6 +1,9 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { useRouter, useRoute} from 'vue-router';
+import { useRouter, useRoute } from 'vue-router';
+import { useProgressStore } from '@/stores/utli/progress';
+
+const progressStore = useProgressStore();
 const router = useRouter();
 const route = useRoute();
 const roles = ref([]);
@@ -8,10 +11,12 @@ const loading = ref(true);
 
 const getRoles = async () => {
     loading.value = true;
+    progressStore.disabled = false;
     await Http.get('/v1/roles')
         .then((response) => {
             roles.value = response.data;
             loading.value = false;
+            progressStore.disabled = true;
         })
         .catch((error) => {
             console.log(error);

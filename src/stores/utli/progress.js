@@ -3,8 +3,8 @@ import { ref } from 'vue';
 
 export const useProgressStore = defineStore('progress', () => {
     const status = ref(false);
-
-    const showProgress = (is_status = true, is_disable) => {
+    const disabled = ref(true);
+    const showProgress = (is_status = true, is_disable = disabled) => {
         if (is_disable) {
             status.value = is_status;
         }
@@ -12,6 +12,7 @@ export const useProgressStore = defineStore('progress', () => {
 
     return {
         status,
+        disabled,
         showProgress
     };
 });
