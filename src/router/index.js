@@ -24,11 +24,6 @@ const router = createRouter({
                 // User Management
                 ...userManagementRoutes
             ]
-            // beforeEnter: (to, from, next) => {
-            //     if (get('access_token')) {
-            //         next();
-            //     } else next('/auth/login');
-            // }
         },
         ...authRoutes,
         ...utliRoutes

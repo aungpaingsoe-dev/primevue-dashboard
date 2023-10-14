@@ -1,5 +1,6 @@
 <script setup>
-import { computed, watch, ref } from 'vue';
+import { computed, watch, ref, onMounted } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 import AppTopbar from './AppTopbar.vue';
 import AppFooter from './AppFooter.vue';
 import AppSidebar from './AppSidebar.vue';
@@ -8,6 +9,8 @@ import { useLayout } from '@/layout/composables/layout';
 import { useProgressStore } from '@/stores/utli/progress';
 
 const progressStore = useProgressStore();
+const route = useRoute();
+const router = useRouter();
 const { layoutConfig, layoutState, isSidebarActive } = useLayout();
 
 const outsideClickListener = ref(null);
@@ -57,6 +60,12 @@ const isOutsideClicked = (event) => {
 
     return !(sidebarEl.isSameNode(event.target) || sidebarEl.contains(event.target) || topbarEl.isSameNode(event.target) || topbarEl.contains(event.target));
 };
+
+onMounted(() => {
+    if (route.path === '/') {
+        router.push('/dashboard/home');
+    }
+});
 </script>
 
 <template>

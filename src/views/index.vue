@@ -6,6 +6,4 @@ const router = useRouter();
 onMounted(() => {
     router.push('/dashboard/home');
 });
-
 </script>
-
