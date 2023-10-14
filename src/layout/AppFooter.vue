@@ -4,7 +4,9 @@ import { useLayout } from '@/layout/composables/layout';
 
 <template>
     <div class="layout-footer">
-        <span class="font-medium ml-2">Development by @CID</span>
+        <a href="https://alphacoder.onrender.com" target="_black">
+            <span class="font-medium ml-2">Development by @Alpha</span>
+        </a>
     </div>
 </template>
 <style lang="scss" scoped></style>

@@ -1,11 +1,13 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
-import FullScreen from '../components/Reusables/Icons/FullScreen.vue';
 import { useLayout } from '@/layout/composables/layout';
 import { useRouter } from 'vue-router';
+import AppConfig from '@/layout/AppConfig.vue';
+import { useBreadCrumbStore } from '@/stores/utli/breadcrumb'
 
 const { layoutConfig, onMenuToggle } = useLayout();
 
+const breadCrumbStore = useBreadCrumbStore();
 const outsideClickListener = ref(null);
 const topbarMenuActive = ref(false);
 let toggleClick = ref(false);
@@ -96,32 +98,22 @@ const isOutsideClicked = (event) => {
 
 <template>
     <div class="layout-topbar">
-        <router-link to="/" class="layout-topbar-logo">
-            <img src="/layout/images/dashboard/umg.png" alt="logo" />
-            <span>UMG Myanmar</span>
-        </router-link>
-
         <button class="p-link layout-menu-button layout-topbar-button" @click="onMenuToggle()">
             <i class="pi pi-bars"></i>
         </button>
 
-        <button class="p-link layout-topbar-menu-button layout-topbar-button" @click="onTopBarMenuButton()">
+        <button class="p-link layout-topbar-menu-button layout-topbar-button " @click="onTopBarMenuButton()">
             <i class="pi pi-ellipsis-v"></i>
         </button>
 
-        <div class="layout-topbar-menu" :class="topbarMenuClasses">
-            <button @click="getFullScreen()" class="p-link layout-topbar-button">
-                <FullScreen />
-            </button>
+        <Breadcrumb :model="breadCrumbStore.items" class=" ps-4 bg-transparent shadow-0 border-0 fw-bold d-flex align-items-center m-0 " />
 
-            <button @click="onTopBarMenuButton()" class="p-link layout-topbar-button">
-                <i class="pi pi-calendar"></i>
-                <span>Calendar</span>
-            </button>
-            <button @click="onTopBarMenuButton()" class="p-link layout-topbar-button">
-                <i class="pi pi-user"></i>
-                <span>Profile</span>
-            </button>
+        <div class="layout-topbar-menu d-flex align-items-center gap-4 me-3" :class="topbarMenuClasses">
+            <i class="pi pi-window-maximize cursor-pointer"
+            @click="getFullScreen()"
+            style="font-size: 18px"></i>
+            <app-config></app-config>
+            <i class="pi pi-user cursor-pointer" style="font-size: 20px"></i>
         </div>
     </div>
 </template>

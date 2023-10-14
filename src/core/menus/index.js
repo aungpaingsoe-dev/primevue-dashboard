@@ -1,15 +1,9 @@
-import homeMenus from "./dashboard/home";
-import saCoreHrisMenus from "./dashboard/sa-core-hris";
 import userManagementMenus from "./dashboard/user-management";
-import employeeMenus from './dashboard/employees'
+import homeMenus from "./dashboard/home";
 
 const menus = [
-    // Home
+    // Home 
     ...homeMenus,
-    // Sa Core Hris
-    ...saCoreHrisMenus,
-    // Employee
-    ...employeeMenus,
     // User Management
     ...userManagementMenus,
 ];
